@@ -1,0 +1,7 @@
+.slides .slide [data-code] {
+    font-size: var(--code);
+}
+
+[data-code][data-line] {
+    width: 100%;
+}

@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slides</title>
+  <meta 
+    name="description" 
+    content="Доклад об авторизации">
+
+  <link rel="preload" href="fonts/FiraCode-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/Inter-VariableFont_slnt,wght.ttf" as="font" type="font/ttf" crossorigin>
+
+  <link rel="preload" as="style" href="styles/reset.css">
+  <link rel="preload" as="style" href="styles/fonts.css">
+  <link rel="preload" as="style" href="styles/SlideController.css">
+  <link rel="preload" as="style" href="styles/variables.css">
+  <link rel="preload" as="style" href="styles/slide.css">
+  <link rel="preload" as="style" href="styles/progress.css">
+  <link rel="modulepreload" href="javascript/SlideController.mjs">
+  <link rel="modulepreload" href="javascript/Keys.mjs">
+  <link rel="modulepreload" href="javascript/Selectors.mjs">
+  <link rel="stylesheet" href="styles/SlideController.css">
+</head>
+<body>
+  <main>
+    <ol class="slides">
+
+      <li class="slide">
+        <figure class="content centred sub-title sub-title-1">
+          <div>
+            <h2>Problem</h2>
+          </div>
+          <figcaption class="caption"><span>What problem we are trying to solve</span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list">
+          <div>
+            <h3>Why not?</h3>
+            <ul>
+              <li>Not enough trust</li>
+              <li>Not enough information</li>
+              <li>Too complex</li>
+            </ul>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred advice">
+          <div>
+            <h3>Trust</h3>
+            <p>User should think, that it's safe to use your service</p>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content split">
+          <div class="half vh screenshot screenshot--report"></div>
+          <div class="half vh centred screenshot">
+            <img src="images/lastpass.svg" alt="LastPass">
+          </div>
+        </figure>  
+      </li>
+
+      <li class="slide">
+        <figure class="content centred advice">
+          <div>
+            <h3>Trust</h3>
+            <p>Show rating and review, make sure that you are responsive and available in used media-channel, add microformats</p>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--rating"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred advice">
+          <div>
+            <h3>Transparency</h3>
+            <p>Explain why do you need information and how you are planing to use it. And how you wouldn't use it.</p>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--transparency"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred advice">
+          <div>
+            <h3>Simplicity</h3>
+            <p>Do not request data until the moment, when you need it</p>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred sub-title sub-title-2">
+          <div>
+            <h2>HTML</h2>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred sub-title sub-title-3">
+          <div>
+            <h2>Forms</h2>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list">
+          <div>
+            <h3>What forms?</h3>
+            <ul>
+              <li>Registration (SR Flow)</li>
+              <li>Login (SR Flow and dedicated)</li>
+              <li>Password recovery</li>
+            </ul>
+          </div>
+        </figure>
+      </li>
+
+
+      <li class="slide">
+        <figure class="content illustration illustration--robot">
+          <h2 class="cloud"><b>Semantics! <br> BIP!!! </b></h2>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+            <pre data-code="36"><code class="language-html">&lt;form method=&quot;post&quot; action=&quot;&#x2F;sign-up&#x2F;&quot;&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Registration&lt;&#x2F;legend&gt;
+    &lt;!-- Input fields --&gt;
+  &lt;&#x2F;fieldset&gt;
+  &lt;button type=&quot;submit&quot;&gt;
+    Register
+  &lt;&#x2F;button&gt;
+&lt;&#x2F;form&gt;</code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+            <pre data-code="36"><code class="language-html">&lt;label&gt;
+  Email
+  &lt;small&gt;We wouldn't send spam&lt;&#x2F;small&gt;
+  &lt;input 
+    value=&quot;&quot;
+    name=&quot;email&quot;
+    type=&quot;email&quot; 
+    placeholder=&quot;email@gmail.com&quot;&gt;
+&lt;&#x2F;label&gt;</code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred sub-title sub-title-4">
+          <div>
+            <h2>Attributes</h2>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+            <pre data-code="67"><code class="language-html">autocorrect="off"
+spellcheck="false"
+autocapitalize="none"</code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list">
+          <div>
+            <h3>Which attributes can be useful?</h3>
+            <ul>
+              <li>inputmode</li>
+              <li>autocomplete</li>
+            </ul>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list">
+          <div>
+            <h3>inputmode</h3>
+            <div class="split">
+              <ul class="half">
+                <li>none</li>
+                <li>text</li>
+                <li>tel</li>
+                <li>url</li>
+              </ul>
+              <ul class="half">
+                <li>email</li>
+                <li>numeric</li>
+                <li>decimal</li>
+                <li>search</li>
+              </ul>
+            </div>
+          </div>
+        </figure>
+      </li>
+
+
+      <li class="slide">
+        <figure class="content centred problems-list">
+          <div>
+            <h3>autocomplete</h3>
+            <ul>
+              <li>username</li>
+              <li>new-password</li>
+              <li>current-password</li>
+              <li>one-time-code</li>
+              <li>…</li>
+            </ul>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+            <pre data-code="67"><code class="language-html">inputmode=&quot;email&quot;
+autocomplete=&quot;email&quot;</code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content split">
+          <div class="third vh screenshot screenshot--email"></div>
+          <div class="third vh screenshot screenshot--email-android"></div>
+          <div class="third vh screenshot screenshot--email-android-2"></div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--email-desktop"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+            <pre data-code="50"><code class="language-bash">autocomplete=&quot;new-password&quot;</code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content split steps">
+          <div class="third screenshot screenshot--new-password-1"></div>
+          <div class="third screenshot screenshot--new-password-2"></div>
+          <div class="third screenshot screenshot--new-password-save"></div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content split steps">
+          <div class="third screenshot screenshot--new-password-android-1"></div>
+          <div class="third screenshot screenshot--new-password-android-2"></div>
+          <div class="third screenshot screenshot--new-password-android-save"></div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--new-password-desktop"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+            <pre data-code="42"><code class="language-html">autocomplete=&quot;current-password&quot;</code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content split">
+          <div class="screenshot screenshot--current-password third vh "></div>
+          <div class="screenshot screenshot--current-password-android-1 third vh "></div>
+          <div class="screenshot screenshot--current-password-android-2 third vh "></div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--current-password-desktop"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+            <pre data-code="48"><code class="language-html">inputmode=&quot;numeric&quot;
+autocomplete=&quot;one-time-code&quot;</code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+            <pre data-code="64"><code class="language-js">
+`${code} is your 
+  authentication code.
+  @${domain} #${code}`
+            </code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content split steps">
+          <div class="quarter vh screenshot screenshot--sms-1"></div>
+          <div class="quarter vh screenshot screenshot--sms-2"></div>
+          <div class="quarter vh screenshot screenshot--sms-3"></div>
+          <div class="quarter vh screenshot screenshot--sms-4"></div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--sms-input"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content split steps">
+          <div class="screenshot screenshot--settings-1 third vh "></div>
+          <div class="screenshot screenshot--settings-2 third vh "></div>
+          <div class="screenshot screenshot--settings-3 third vh "></div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--desktop-sms-input"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list">
+          <div>
+            <h3>iOS look for words next to numbers</h3>
+            <ol>
+              <li>code</li>
+              <li>passcode</li>
+            </ol>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list">
+          <div>
+            <h3>Chrome and Android don't support declarative approach to OTP autocomplete</h3>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred spec split">
+          <div class="half">
+            <h2 class="sms-title">Origin-bound one-time codes delivered via SMS</h2>
+          </div>
+          <div class="half">
+            <img class="book-qrcode" src="images/sms.svg" alt="QR-Code with link to Origin-bound one-time codes delivered via SMS specification">
+            <a aria-label="Read about the SMS format that we should use to make autocomplete work." target="_blank" data-click href="https://wicg.github.io/sms-one-time-codes/">Read about SMS format that we should use to make autocomplete work</a>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred spec split">
+          <div class="half">
+            <h2 class="sms-title">Automatic Strong Passwords and Security Code AutoFill</h2>
+          </div>
+          <div class="half">
+            <img class="book-qrcode" src="images/wwdc2018.svg" alt="QR-Code with link to a page with WWDC 2018 video">
+          <a aria-label="Watch presentation from Apple WWDC 2018, that show new funcionality of iOS 12" target="_blank" data-click href="https://developer.apple.com/videos/play/wwdc2018/204/">Watch presentation from Apple WWDC 2018, that show new funcionality of iOS 12</a>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred spec split">
+          <div class="half">
+            <h2>HTML Living Standard</h2>
+          </div>
+          <div class="half">
+            <img class="book-qrcode" src="images/autofill.svg" alt="QR-Code with link to a page, that allow to buy Form Design Patterns">
+            <a aria-label="Open Autocomplete section of HTML specification" target="_blank" data-click href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill">Read about autocoplere</a>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred spec split">
+          <img class="half book-illustration" src="images/book-design-patterns.png" alt="Form Design Patterns Book">
+          <div class="half">
+            <img class="book-qrcode" src="images/book-design-patterns.svg" alt="QR-Code with link to places wherer tou may buy book Form Design Patterns">
+            <a aria-label="Buy Form Design Patterns" target="_blank" data-click href="https://www.smashingmagazine.com/printed-books/form-design-patterns/">Buy the book</a>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred sub-title sub-title-5">
+          <div>
+            <h2>Data source</h2>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content illustration illustration--robot-2">
+          <h2 class="cloud"><b>All your passwords<br> belong to us! BOP!</b></h2>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--save-password"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content illustration illustration--scream">
+          <h2 class="cloud"><b>Se-e-e-et the na-a-a-ame!</b><span></span></h2>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+            <pre data-code="48"><code class="language-html">&lt;StyledInput
+  ref={emailInputRef}
+  type=&quot;email&quot;
+  onChange={setEmail}
+  value={email}
+  autoComplete=&quot;email&quot;
+  &#x2F;&gt;</code></pre>
+          <figcaption class="caption"><span>
+            I mean, we develop react application. 
+            We don't usually send forms anywhere. 
+            We don't have fallbacks and can't use it without JavaScript.
+            There is a temptation to skip the name attribute.
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot  screenshot--nonames">
+          <figcaption class="caption"><span>
+            But then we would see this.
+            Phone number instead of the user name, how come?
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list ">
+          <div>
+            <h3>Chrome and Firefox</h3>
+            <ol>
+              <li>username</li>
+              <li>field before password</li>
+            </ol>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list ">
+          <div>
+            <h3>Safari</h3>
+            <ol>
+              <li>username</li>
+              <li>email</li>
+              <li>field before password</li>
+            </ol>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+            <pre data-code="48"><code class="language-html">autocomplete=&quot;username email&quot;</code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--autofill">
+          <figcaption class="caption"><span>
+            You can find all your autocomplete passwords, addresses and payment methods in browser settings
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--add-list">
+          <figcaption class="caption"><span>
+            You can manage addresses saved from forms
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--add">
+          <figcaption class="caption"><span>
+            And more then that: you can add your ones
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content split steps">
+          <div class="screenshot screenshot--password-1 third vh "></div>
+          <div class="screenshot screenshot--password-2 third vh "></div>
+          <div class="screenshot screenshot--password-3 third vh "></div>
+          <figcaption class="caption"><span>
+            On iOs you can manage sources for autocomplete.
+            iCloud Keychain by default.
+            And one other additional source.
+            Chrome one.
+            Or Lockwise from FireFox.
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--can-change-password">
+          <figcaption class="caption"><span>
+            Aside from auto-completing, a browser can find compromised passwords
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred sub-title sub-title-6">
+          <div>
+            <h2>Password change</h2>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+            <pre data-code="42"><code class="language-js">server.use(
+"/.well-known/change-password", 
+(req, res) => {
+  res.redirect("/reset-password");
+});</code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+            <pre data-code="36"><code class="language-nginx">
+server {
+  rewrite 
+    ^/.well-known/change-password$ 
+    http://domain.com/reset-password
+    redirect;
+}
+              </code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list ">
+          <div>
+            <h3>Expected responces</h3>
+            <ul>
+              <li>302 Found</li>
+              <li>303 See Other</li>
+              <li>307 Temporary Redirect</li>
+            </ul>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--restore"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+          <pre data-code="42"><code class="language-js">server.use(`
+  /.well-known/resource-that-
+  should-not-exist-whose-status-
+  code-should-not-be-200`,
+  (req, res) => {
+    res.status(404).end();
+  });</code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list ">
+          <div>
+            <h3>Expected responces</h3>
+            <ul>
+              <li>404 Not Found</li>
+            </ul>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred spec split">
+          <div class="half">
+            <h2 class="password-title">A Well-Known URL for Changing Passwords</h2>
+          </div>
+          <div class="half">
+            <img class="book-qrcode" src="images/change-password.svg" alt="QR-Code with link to A Well-Known URL for Changing Passwords specification">
+            <a aria-label="Open specification Changing Passwords in the browser" target="_blank" data-click href="https://w3c.github.io/webappsec-change-password-url/">Read specification URL for Changing Passwords from the browser</a>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred sub-title sub-title-7">
+          <div>
+            <h2>JavaScript</h2>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred sub-title sub-title-0">
+          <div>
+            <h2>Credential Management</h2>
+          </div>
+          <figcaption class="caption"><span>
+            Let's discuss the Credential Management specification. This one is special: it is extendable.
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+          <pre data-code="64"><code class="language-js">navigator.credentials</code></pre>
+          <figcaption class="caption"><span>
+            navigator.credentials is root object for everything. 
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+          <pre data-code="42"><code class="language-js">.create(CredentialCreationOptions)
+.store(Credential)
+.get(CredentialRequestOptions)
+.preventSilentAccess()</code></pre>
+          <figcaption class="caption"><span>
+            .create allow to build a credential object, .store allow to store it to the browser and .get — request them back. .preventSilentAccess will switch off silent login functionality
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list ">
+          <div>
+            <h3>Credential types:</h3>
+            <ul>
+              <li>PasswordCredential</li>
+              <li>FederatedCredential</li>
+              <li>OTPCredential&nbsp;(WebOTP)</li>
+              <li>PublicKeyCredential&nbsp;(WebAuthn)</li>
+            </ul>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred advice problems-list">
+          <div>
+            <h3>PasswordCredential</h3>
+            <p>Authentication with login and password.</p>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred advice problems-list">
+          <div>
+            <h3>CredentialData: </h3>
+            <ol>
+              <li>id</li>
+            </ol>
+          </div>
+          <figcaption class="caption"><span>
+            The basic object called CredentialData and only property is "id"
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list">
+          <div>
+            <h3>PasswordCredential: </h3>
+            <ol>
+              <li>name</li>
+              <li>iconURL</li>
+              <li>password</li>
+              <li>type: "password"</li>
+            </ol>
+          </div>
+          <figcaption class="caption"><span>
+            PasswordCredential adds fields on top of that
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--registration-1"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+          <pre data-code="32" data-line="5-9"><code class="language-js">const signUpHandler = async (event) => { 
+  // Registration
+  const form = event.currentTarget;
+  if (window?.PasswordCredential) {
+    const credential = await navigator.
+      credentials.create({
+        password: form
+      });
+    navigator.credentials.store(credential);
+  }
+}</code></pre>
+          <figcaption class="caption"><span>
+            After registration we can create credentials directly from form object
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+          <pre data-code="26" data-line="5-6"><code class="language-js">const signUpHandler = (event) => { 
+  // Registration
+  const form = event.currentTarget;
+  if (window?.PasswordCredential) {
+    const credential = new PasswordCredential(form);
+    navigator.credentials.store(credential);
+  }
+}</code></pre>
+          <figcaption class="caption"><span>
+            We can use PasswordCredential as a shortcut
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--registration-2">
+          <figcaption class="caption"><span>
+            Interesting fact: if the user chooses to use the autogenerated password, the browser will just save the form without additional interactions
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--registration-3">
+          <figcaption class="caption"><span>
+            Otherwise, the user will have to confirm this
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+          <pre data-code="36"><code class="language-js">function signUpHandler (event) { 
+  // Registration
+  const form = event.currentTarget;
+  const data = new FormData(form);
+
+  if (window?.PasswordCredential) {
+    // …
+  }
+}</code></pre>
+          <figcaption class="caption"><span>
+            But what if we would want to have more control over the data we save?
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+          <pre data-code="36"><code class="language-js">const credential = 
+  new PasswordCredential({
+    id: data.get('email'),
+    name: data.get('firstName'),
+    password: data.get('password'),
+    iconURL: data.get('avatar'),
+  });
+navigator.credentials.store(credential);</code></pre>
+          <figcaption class="caption"><span>
+            Then we can pass specific data to the method and this will enable us to set avatar for example or choose which field would be the name
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content split gap nowrap">
+          <div class="half vh screenshot screenshot--registration-4"></div>
+          <div class="half vh screenshot screenshot--registration-5"></div>
+        </figure>  
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+          <pre data-code="48"><code class="language-js">navigator.credentials.get()</code></pre>
+          <figcaption class="caption"><span>
+            To use credentials, we should request them from the browser
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list">
+          <div>
+            <h3>CredentialRequestOptions: </h3>
+            <ol>
+              <li>mediation 
+                <ul>
+                  <li>silent</li>
+                  <li>optional</li>
+                  <li>required</li>
+                </ul>
+              </li>
+              <li>signal</li>
+            </ol>
+          </div>
+          <figcaption class="caption"><span>
+            And we need to create CredentialRequestOptions to do so. 
+            Mediation conception is critical for understanding.
+            <!-- Silent means that when we request credentials for this origin browser should return them without any user interaction if he can or just return null otherwise.
+            Browser can return credential if folowing conditions are satisfied:
+            - Browser have credentials for this origin
+            - Browser have only one credentials set for this origin
+            - Prevent Silent Access was not called -->
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list">
+          <div>
+            <h3>PasswordCredential: </h3>
+            <ol>
+              <li>password: true  </li>
+            </ol>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+          <pre data-code="32"><code class="language-js">(async () => {
+  if (window?.PasswordCredential) {
+    const credential = 
+      await navigator.credentials.get({
+        password: true,
+        mediation: 'silent',
+      });
+    if (credential === null) return;
+    // Authentication
+    // Error handling
+}})();</code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list">
+          <div>
+            <h3>PasswordCredentialData: </h3>
+            <ol>
+              <li>id</li>
+              <li>name</li>
+              <li>iconURL</li>
+              <li>password</li>
+              <li>type: "password"</li>
+            </ol>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--signedin"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+          <pre data-code="32" data-line="5"><code class="language-js">if (window?.PasswordCredential) {
+  const credential = 
+    await navigator.credentials.get({
+      password: true,
+      mediation: 'optional',
+    });
+  if (credential === null) return;
+  // Authentication
+  // Error handling
+}</code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--signedin-selector-1"></figure>
+      </li>
+
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--signedin-selector-2"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+          <pre data-code="42"><code class="language-js">if (navigator?.credentials
+    .preventSilentAccess) {
+  await navigator?.credentials
+    .preventSilentAccess(id);
+}</code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content split steps">
+          <div class="half vh screenshot screenshot--signedin-selector-2"></div>
+          <div class="half vh screenshot screenshot--signedin-cross"></div>
+        </figure>  
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list">
+          <div>
+            <h3>FederatedCredentialData:</h3>
+            <div class="split">
+              <ul class="third">
+                <li>id</li>
+                <li>name</li>
+                <li>iconURL</li>
+              </ul>
+              <ul class="two-thirds">
+                <li>provider</li>
+                <li>protocol</li>
+                <li>type: "federated"</li>
+              </ul>
+            </div>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--credentials-support-1"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--credentials-support-2"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--no"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred spec split">
+          <div class="half">
+            <h2 class="password-title">The Credential Management API (Web Fundamentals)</h2>
+          </div>
+          <div class="half">
+            <img class="book-qrcode" src="images/web-fun-credential.svg" alt="QR-Code with link to an Web Fundamentals article about Credential Management API usage">
+            <a aria-label="Open an aricle about Credential Management" target="_blank" data-click href="https://developers.google.com/web/fundamentals/security/credential-management">Read how to use Credential Management in practice</a>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred spec split">
+          <div class="half">
+            <h2 class="password-title">Credential Management</h2>
+          </div>
+          <div class="half">
+            <img class="book-qrcode" src="images/credentials.svg" alt="QR-Code со ссылкой на спецификацию Credential Management">
+            <a aria-label="Open Credential Management specification" target="_blank" data-click href="https://w3c.github.io/webappsec-credential-management/">Read Credential Management specification</a>
+          </div>
+        </figure>
+      </li>
+
+      <!-- <li class="slide">
+        <figure class="content centred no-padding">
+          <pre data-code="24"><code class="language-bash">$ git checkout masterclass
+$ git log --oneline -8
+094e9867 step 8: store credentials on registration
+067c6952 step 7: store credentials on login
+821100d8 step 6: add backward compatibility for login link
+83aa2d61 step 5: adding optional login
+a4ded8aa step 4: prevent silent login on logout
+3b0159de step 3: prevent extra logins
+85100d18 step 2: login with credentials
+7d52c823 step 1: get credentials
+</code></pre>
+        </figure>
+      </li> -->
+
+      <li class="slide">
+        <figure class="content centred sub-title sub-title-1">
+          <div>
+            <h2>Web&nbsp;OTP&nbsp;API</h2>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list">
+          <div>
+            <h3>OTPCredential</h3>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+          <pre data-code="42"><code class="language-js">if ('OTPCredential' in window) {
+  const { code, type } = await 
+    navigator.credentials.get({
+      otp: { transport:['sms'] }
+    });
+
+  if (!code) return;
+  // Authentication
+}</code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content split">
+          <div class="half vh screenshot screenshot--emulator-send"></div>
+          <div class="half vh screenshot screenshot--emulator-recieve"></div>
+        </figure>  
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list">
+          <div>
+            <h3>Requirements for SMS in Chrome for Android: </h3>
+            <ol>
+              <li>The message must contain 4-10 alphanumeric characters, at least 1 of which is a number</li>
+            </ol>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred problems-list">
+          <div>
+            <h3>Requirements for SMS in Chrome for Android: </h3>
+            <ol start="2">
+              <li>You must send a message from a number that does not belong to the user's contacts.</li>
+            </ol>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred spec split">
+          <div class="half">
+            <h2 class="password-title">Verify phone numbers on the web with the Web OTP API (Web Fundamentals)</h2>
+          </div>
+          <div class="half">
+            <img class="book-qrcode" src="images/webotp.svg" alt="QR-Code with link to an article on Web Fundamentals about SMS OTP autocomplete under Chrome for Android with Web OTP API">
+            <a aria-label="Read about about SMS OTP autocomplete under Chrome for Android with Web OTP API" target="_blank" data-click href="https://web.dev/web-otp/">Read about SMS OTP autocomplete under Chrome for Android with Web OTP API</a>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred spec split">
+          <div class="half">
+            <h2 class="sms-title">Origin-bound one-time codes delivered via SMS</h2>
+          </div>
+          <div class="half">
+            <img class="book-qrcode" src="images/sms.svg" alt="QR-Code with link to a specification on Origin-bound one-time codes delivered via SMS">
+            <a aria-label="Read about sms format in the origin-bound one-time codes delivered via SMS specification" target="_blank" data-click href="https://wicg.github.io/sms-one-time-codes/">Read about sms format in the origin-bound one-time codes delivered via SMS specification</a>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred spec split">
+          <div class="half">
+            <h2>Web OTP API</h2>
+          </div>
+          <div class="half">
+            <img class="book-qrcode" src="images/otp-api.svg" alt="QR-Code with link to Web OTP API specification">
+            <a aria-label="Read Web OTP API specification, which we must use to aquire SMS from script" target="_blank" data-click href="https://wicg.github.io/web-otp/">Read how with Web OTP API, we can aquire SMS from script</a>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred sub-title sub-title-3">
+          <div>
+            <h2>isLoggedIn Web API</h2>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+          <pre data-code="64"><code class="language-js">navigator.setLoggedIn
+navigator.setLoggedOut
+navigator.isLoggedIn</code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--stub"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred spec split">
+          <div class="half">
+            <h2 class="isloggedin-title">isLoggedIn<br>Web API</h2>
+          </div>
+          <div class="half">
+            <img class="book-qrcode" src="images/isloggedin.svg" alt="QR-Code with link to isLoggedIn Web API specification">
+            <a aria-label="Read isLoggedIn Web API specification" target="_blank" data-click href="https://github.com/privacycg/is-logged-in">Read how to notify browser that user is authenticated</a>
+          </div>
+        </figure>
+      </li>
+
+    </ol>
+  </main>
+  <progress id="progress"></progress>
+
+  <!-- <meter id="timer"></meter> -->
+
+  <form class="slide-selector">
+    <input 
+      aria-label="Page number" 
+      autocomplete="off" 
+      maxlength="3" 
+      size="3" 
+      pattern="[0-9]{1,3}" 
+      placeholder="1" 
+      type="number" 
+      inputmode="numeric" 
+      name="page">
+  </form>
+
+  <!-- <form class="timer-controller">
+    <input 
+      aria-label="Munutes" 
+      autocomplete="off" 
+      maxlength="3" 
+      size="3" 
+      pattern="[0-9]{1,3}" 
+      placeholder="30"
+      type="number" 
+      inputmode="numeric" 
+      name="minutes">
+  </form> -->
+
+  <!-- <form class="timer-controller">
+    <fieldset>
+      <label>
+        Start at: 
+        <input autocomplete="off" placeholder="12:30" type="time" name="start" step="300">
+      </label>
+      <label>
+        Duration is: 
+        <input aria-label="Duration is" size="2" autocomplete="off" placeholder="30" type="number" inputmode="numeric" name="duration">
+        minutes
+      </label>
+    </fieldset>
+  </form> -->
+
+  <script type="module" src="javascript/SlideController.mjs"></script>
+  <script src="javascript/prism.js"></script>
+</body>
+</html>
