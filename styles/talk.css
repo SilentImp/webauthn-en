@@ -2,6 +2,40 @@
   box-shadow: inset 0 0 0 24px #f008;
 } */
 
+.main-title .outer-title {
+  max-width: 80%;
+  padding: 1rem;
+  background: linear-gradient(to right, #0096ff, #f644d1);
+  transform: skewY(-10deg);
+  text-transform: uppercase;
+}
+
+.main-title .outer-title h1 {
+  background-color: #fff;
+  padding: 1rem;
+}
+
+.main-title .outer-title h1 b {
+  font-size: 6rem;
+  line-height: 6rem;
+  display: block;
+  background: linear-gradient(to right, #0096ff, #f644d1);
+  font-weight: bold;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.main-title .outer-title h1 b span {
+  font-size: 12rem;
+  line-height: 10rem;
+  display: block;
+  background: linear-gradient(to right, #0096ff, #f644d1);
+  font-weight: bold;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: -6rem;
+}
+
 .sub-title-0 {
   --add-bgc: #cc00d7;
   --common-bgc: #b200bb;
