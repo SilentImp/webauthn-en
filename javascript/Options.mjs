@@ -11,4 +11,5 @@ export default {
     talkStartTime: null,
     channelName: 'exhibitionist',
     captionModeEnum: [null, 'captions', 'teleprompter'],
+    countdownTimerShowOn: ['all'],
 }

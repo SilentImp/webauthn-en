@@ -2,38 +2,182 @@
   box-shadow: inset 0 0 0 24px #f008;
 } */
 
+.main-title {
+  /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='100'%3E%3Cstyle%3E@font-face{font-family:'Shentox';src:url('../fonts/Shentox.ttf')format('truetype');}.small{font-size:5rem;font-family:Shentox;}%3C/style%3E%3Ctext x='0' y='80' class='small'%3EAUTHENTICATION%20FLOW%3C/text%3E%3C/svg%3E");
+  background-size: 500px 50px;
+  background-repeat: repeat; */
+}
+
 .main-title .outer-title {
   max-width: 80%;
-  padding: 1rem;
+  padding: 1rem 3rem;
   background: linear-gradient(to right, #0096ff, #f644d1);
   transform: skewY(-10deg);
   text-transform: uppercase;
+
+  font-family: "Shentox";
+  font-weight: 800;
+  position: relative;
+}
+
+.main-title .outer-title::before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  left: -0.0625rem;
+  height: 50%;
+  width: 2rem;
+  transform: skew(0, -45deg);
+  background-color: white;
+}
+
+.main-title .outer-title .inner-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto auto auto 0.0625rem;
+  height: 0;
+  width: 0;
+  left: 1.25rem;
+  border-style: solid;
+  border-width: 2rem 2rem 2rem 0;
+  border-color: transparent white transparent transparent;
+  z-index: 1;
+}
+
+.main-title .outer-title .inner-title::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0.0625rem auto auto;
+  height: 0;
+  width: 0;
+  right: 1.25rem;
+  border-style: solid;
+  border-width: 2rem 0 2rem 2rem;
+  border-color: transparent transparent transparent white;
+  z-index: 1;
+}
+
+@keyframes text-blink {
+  0%   { 
+    color: #0096ff; 
+    text-shadow: 0 0 3rem #0096ff;
+  }
+  50% { 
+    color: #cc00d7; 
+    text-shadow: 0 0 4rem #cc00d7;
+  }
+  100%   { 
+    color: #0096ff; 
+    text-shadow: 0 0 3rem #0096ff;
+  }
+}
+
+.main-title .outer-title .inner-title i {
+  position: absolute;
+  bottom: 5rem;
+  top: auto; 
+  right: 0rem;
+  left: auto;
+  background: none;
+  color: #0096ff;
+  display: block;
+  width: min-content;
+  transform-origin: 0 0;
+  transform: rotate(-90deg);
+  font-size: 3.6rem;
+  line-height: 3.6rem;
+  margin: 0;
+
+  animation: text-blink 4s infinite;
+}
+
+.main-title .outer-title::after {
+  content: "";
+  position: absolute;
+  bottom: -1rem;
+  left: -0.0625rem;
+  height: 50%;
+  width: 2rem;
+  transform: skew(0, 45deg);
+  background-color: white;
+}
+
+.main-title .outer-title i {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 2rem;
+
+  display: flex;
+  align-items: flex-end;
+  justify-items: flex-end;
+
+  /* padding: 0 0 3rem; */
+  font: inherit;
+  font-size: 3.5rem;
+  line-height: 6rem;
+  transform-origin: 100% 0;
+  background: linear-gradient(to bottom, #0096ff, #f644d1);
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+  color: white;
+  /* transform: rotate(-90deg); */
+  z-index: 5;
 }
 
 .main-title .outer-title h1 {
   background-color: #fff;
-  padding: 1rem;
+  padding: 2rem 1rem .5rem;
+  font: inherit;
+}
+
+.main-title .outer-title h1::before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  right: -0.0625rem;
+  height: 50%;
+  width: 2rem;
+  transform: skew(0, 45deg);
+  background-color: white;
+}
+
+.main-title .outer-title h1::after {
+  content: "";
+  position: absolute;
+  bottom: -1rem;
+  right: -0.0625rem;
+  height: 50%;
+  width: 2rem;
+  transform: skew(0, -45deg);
+  background-color: white;
 }
 
 .main-title .outer-title h1 b {
+  font: inherit;
   font-size: 6rem;
   line-height: 6rem;
   display: block;
   background: linear-gradient(to right, #0096ff, #f644d1);
-  font-weight: bold;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .main-title .outer-title h1 b span {
+  font: inherit;
+  font-weight: bold;
   font-size: 12rem;
   line-height: 10rem;
   display: block;
   background: linear-gradient(to right, #0096ff, #f644d1);
-  font-weight: bold;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: -6rem;
+  
 }
 
 .sub-title-0 {
@@ -138,6 +282,12 @@
   line-height: 1.2;
   display: inline;
   filter: drop-shadow(8px 0 0 #ff0) drop-shadow(-8px 0 0 #ff0);
+}
+
+.illustration--problem {
+  background-image: url(../images/graph.png);
+  background-color: #fff;
+  background-size: contain;
 }
 
 .illustration--phones {
@@ -297,6 +447,21 @@ h2.isloggedin-title {
   transform: translateX(-50%);
 }
 
+.steps.steps-two-direction .half:after,
+.steps.steps-two-direction .third:after {
+  content: "⬌";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  max-height: 170px;
+  font-size: 170px;
+  display: block;
+  position: absolute;
+  color: #e00;
+  transform: translateX(-50%);
+}
+
 .steps .half:first-of-type:after,
 .steps .third:first-of-type:after {
   display: none;
@@ -334,7 +499,62 @@ html[lang="en"] .server:before {
   content: "Server";
 }
 
+.screenshot--platform-register-1 {
+  background-image: url(../images/platform-register-1.png);
+}
 
+.screenshot--platform-register-2 {
+  background-image: url(../images/platform-register-2.png);
+}
+
+
+.screenshot--libs {
+  background-image: url(../images/libs.png);
+}
+
+.screenshot--ios-logotype {
+  background-color: #fff;
+  background-image: url(../images/ios.svg);
+}
+
+.screenshot--safari-logotype {
+  background-color: #fff;
+  background-image: url(../images/safari.svg);
+}
+
+.screenshot--keychain-1 {
+  background-image: url(../images/passwords-keychain-1.png);
+}
+
+.screenshot--firefox-logotype {
+  background-color: #fff;
+  background-image: url(../images/firefox.svg);
+}
+
+.screenshot--firefox-lockwise-1 {
+  background-image: url(../images/passwords-firefox-1.png);
+}
+
+.screenshot--firefox-lockwise-2 {
+  background-image: url(../images/passwords-firefox-2.png);
+}
+
+.screenshot--chrome-logotype {
+  background-color: #fff;
+  background-image: url(../images/google.svg);
+}
+
+.screenshot--chrome-account-1 {
+  background-image: url(../images/passwords-chrome-1.png);
+}
+
+.screenshot--chrome-account-2 {
+  background-image: url(../images/passwords-chrome-2.png);
+}
+
+.screenshot--chrome-account-3 {
+  background-image: url(../images/passwords-chrome-3.png);
+}
 
 .screenshot--stub {
   background-image: url(../images/stub.png);
@@ -357,7 +577,7 @@ html[lang="en"] .server:before {
 }
 
 .screenshot--login {
-  background-image: url(../images/login.png);
+  background-image: url(../images/login-en.png);
 }
 
 .screenshot--cable {
@@ -381,11 +601,11 @@ html[lang="en"] .server:before {
 }
 
 .screenshot--chrome-key-list-2 {
-  background-image: url(../images/chrome-key-list-2.png);
+  background-image: url(../images/chrome-key-list-2-en.png);
 }
 
 .screenshot--chrome-key-list-3 {
-  background-image: url(../images/chrome-key-list-3.png);
+  background-image: url(../images/chrome-key-list-3-en.png);
 }
 
 .screenshot--chrome-key-flag {
@@ -398,6 +618,16 @@ html[lang="en"] .server:before {
 
 .screenshot--ff-key {
   background-image: url(../images/ff-key.png);
+}
+
+.screenshot--webauth-debug-1 {
+  background-image: url(../images/webauthn-debug.png);
+}
+.screenshot--webauth-debug-2 {
+  background-image: url(../images/webauthn-debug-2.png);
+}
+.screenshot--webauth-debug-3 {
+  background-image: url(../images/webauthn-debug-3.png);
 }
 
 .screenshot--safari-key-1 {
@@ -413,11 +643,11 @@ html[lang="en"] .server:before {
 }
 
 .screenshot--safari-face-id-1 {
-  background-image: url(../images/safari-face-id-1.png);
+  background-image: url(../images/safari-face-id-1-en.png);
 }
 
 .screenshot--safari-face-id-2 {
-  background-image: url(../images/safari-face-id-2.png);
+  background-image: url(../images/safari-face-id-2-en.png);
 }
 
 .screenshot--caniuse-webauth {

@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slides</title>
+  <title>Perfect Authentication Flow</title>
   <meta 
     name="description" 
-    content="Доклад об авторизации">
+    content="Talk on possible improvements of your current authentication flow">
 
   <link rel="preload" href="fonts/FiraCode-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="fonts/Inter-VariableFont_slnt,wght.ttf" as="font" type="font/ttf" crossorigin>
@@ -35,8 +35,15 @@
       <li class="slide">
         <figure class="content centred main-title">
           <div class="outer-title">
-            <h1><b><span>It's</span><br />perfect!</b></h1>
+            <div class="inner-title">
+              <h1><b><span>It's</span><br />perfect!</b><i>Flow</i></h1>
+            </div>
           </div>
+          <!-- 
+            Давайте поговорим об аутентификации. 
+            О том как её улучшить
+          -->
+          <figcaption class="caption"><span>Let's talk about authentication flow and how we can improve it</span></figcaption>
         </figure>
       </li>
 
@@ -45,8 +52,22 @@
           <div>
             <h2>Problem</h2>
           </div>
-          <figcaption class="caption"><span>What problem we are trying to solve</span></figcaption>
+          <!-- 
+            Когда я исследовал наш основной сценарий, то обнаружил, что четверть пользователей 
+            теряется на шаге авторизации и увидел в этом отличную возможность улучщить конверсию
+          -->
+          <figcaption class="caption"><span>While researching our main customer flow, I find out that a quarter of customers drop on the authentication step. I see there great opportunity to improve conversion.</span></figcaption>
         </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred illustration illustration--problem">
+        <!-- 
+          Конкретно этот график построен на базе отзывов пользователей, 
+          которые мы собираем когда пользователь пытается покинуть сценарий
+         -->
+        <figcaption class="caption"><span>This particular chart was build based on feedback collected from users that decide to leave this flow.</span></figcaption>
+      </figure>
       </li>
 
       <li class="slide">
@@ -59,6 +80,7 @@
               <li>Too complex</li>
             </ul>
           </div>
+          <figcaption class="caption"><span>But why not? Why do they not want to share their private data? There could be multiple reasons: not enough trust, not enough information, or it's just plain too complex.</span></figcaption>
         </figure>
       </li>
 
@@ -68,6 +90,7 @@
             <h3>Trust</h3>
             <p>User should think, that it's safe to use your service</p>
           </div>
+          <figcaption class="caption"><span>Trust: user should think, that it's safe to use your service.</span></figcaption>
         </figure>
       </li>
 
@@ -77,6 +100,12 @@
           <div class="half vh centred screenshot">
             <img src="images/lastpass.svg" alt="LastPass">
           </div>
+          <!-- 
+            В своём последнем отчете LastPass указала, что каждый пароль 
+            в среднем переиспользуется тринадцать раз. Вводя свой пароль
+            пользователь выказывает вам значительное доверие
+           -->
+           <figcaption class="caption"><span>In last year report, LastPass shows that each password reused approximately thirteen times. When a user enters his password in your service, he gives you a lot of trusts.</span></figcaption>
         </figure>  
       </li>
 
@@ -86,11 +115,18 @@
             <h3>Trust</h3>
             <p>Show rating and review, make sure that you are responsive and available in used media-channel, add microformats</p>
           </div>
+          <figcaption class="caption"><span>Trust: show rating and review, make sure that you are responsive and available in used media-channel, add microformats</span></figcaption>
         </figure>
       </li>
 
       <li class="slide">
-        <figure class="content centred screenshot screenshot--rating"></figure>
+        <figure class="content centred screenshot screenshot--rating">
+          <!-- 
+            К моему удивлению я обнаружил, что это работает. 
+            После появления виджетов в поисковой выдаче ситуация стала лучше. 
+           -->
+          <figcaption class="caption"><span>I was amazed to see it works. After we have used schema to add this kind of widgets, we gain more trust, and this cut share of customers leave this flow.</span></figcaption>
+        </figure>
       </li>
 
       <li class="slide">
@@ -99,11 +135,19 @@
             <h3>Transparency</h3>
             <p>Explain why do you need information and how you are planing to use it. And how you wouldn't use it.</p>
           </div>
+          <figcaption class="caption"><span>Transparency: explain why do you need information and how you are planing to use it. And how you wouldn't use it.</span></figcaption>
         </figure>
       </li>
 
       <li class="slide">
-        <figure class="content centred screenshot screenshot--transparency"></figure>
+        <figure class="content centred screenshot screenshot--transparency">
+          <!-- 
+            Мы добавили текст, который уточняет, что мы никому не дадим 
+            контактные данные пользователя, пока пользователь сам не свяжеться 
+            с джамшутами
+           -->
+          <figcaption class="caption"><span>We add copy that explains: we wouldn't share customer contact data with anyone until the customer explicitly willing to share them with service professionals</span></figcaption>
+        </figure>
       </li>
 
       <li class="slide">
@@ -112,6 +156,7 @@
             <h3>Simplicity</h3>
             <p>Do not request data until the moment, when you need it</p>
           </div>
+          <figcaption class="caption"><span>For example, in one of the experiments, we decide to postpone the user phone number request until we should pass it to the service professional.</span></figcaption>
         </figure>
       </li>
 
@@ -120,6 +165,8 @@
           <div>
             <h2>HTML</h2>
           </div>
+          <!-- Так как я верю в прогрессивное улучшение, давайте сначала обсудим что мы можем сделать с помощью HTML -->
+          <figcaption class="caption"><span>I believe that the web based on HTML, CSS and JavaScript. Also, I believe in progressive enhancement. So let's start from HTML and then see how we can iterate from there.</span></figcaption>
         </figure>
       </li>
 
@@ -128,6 +175,8 @@
           <div>
             <h2>Forms</h2>
           </div>
+          <!-- И начнем мы с форм. -->
+          <figcaption class="caption"><span>Let's talk about forms.</span></figcaption>
         </figure>
       </li>
 
@@ -141,27 +190,61 @@
               <li>Password recovery</li>
             </ul>
           </div>
+          <!-- Каких форм? Если мы говорим об аутентификации, то осноыными связанными с ней формами будут форма регистрации, Логина и восстановления пароля -->
+          <figcaption class="caption"><span>What forms? When we talk about authentication, it would be registration, login and password recovery forms.</span></figcaption>
         </figure>
       </li>
-
 
       <li class="slide">
         <figure class="content illustration illustration--robot">
           <h2 class="cloud"><b>Semantics! <br> BIP!!! </b></h2>
+          <!-- И что же нам поможет сделать формы лучше? Семантика! -->
+          <figcaption class="caption"><span>What could help us improve forms? Semantics!</span></figcaption>
         </figure>
       </li>
 
       <li class="slide">
         <figure class="content centred no-padding">
-            <pre data-code="36"><code class="language-html">&lt;form method=&quot;post&quot; action=&quot;&#x2F;sign-up&#x2F;&quot;&gt;
-  &lt;fieldset&gt;
-    &lt;legend&gt;Registration&lt;&#x2F;legend&gt;
-    &lt;!-- Input fields --&gt;
-  &lt;&#x2F;fieldset&gt;
+          <!-- 
+            Используйте формы, даже, если вы отправляете данные с помощью JavaScript!
+            Даже если вы не планируете фолбек к серве-сайду. 
+            Благодаря этому проще понять, что тут вообще происходит.
+            Кроме того можно получить все данные формы с помощью FormData.
+          -->
+          <pre data-code="36"><code class="language-html">&lt;form method=&quot;post&quot; action=&quot;&#x2F;sign-up&#x2F;&quot;&gt;
+&lt;&#x2F;form&gt;</code></pre>
+          <figcaption class="caption"><span>Use form element. Even if you send data with JavaScript. Form element for grouping allows using FormData.</span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+          <!-- 
+            Не забывайте, что когда вы нажимаете enter в одном из полей формы то, де-факто,
+            нажимаете на первую дочернюю кнопку отправки формы. 
+            Это играет роль, когда у вас больше чем одна такая кнопка внутри формы. 
+            Особенно, если используется formaction.
+          -->
+          <pre data-code="36"><code class="language-html">&lt;form method=&quot;post&quot; action=&quot;&#x2F;sign-up&#x2F;&quot;&gt;
   &lt;button type=&quot;submit&quot;&gt;
     Register
   &lt;&#x2F;button&gt;
 &lt;&#x2F;form&gt;</code></pre>
+          <figcaption class="caption"><span>Use button elements. Specify proper button type. And remember that when the user press enter while input focused, he de-facto press the first child submit button in the form. This could matter when you have more than one submit button.</span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding">
+            <pre data-code="45"><code class="language-html">&lt;fieldset&gt;
+  &lt;legend&gt;Registration&lt;&#x2F;legend&gt;
+  &lt;!-- Input fields --&gt;
+&lt;&#x2F;fieldset&gt;</code></pre>
+          <!-- 
+            Помните о том, что есть Fieldset и legend. 
+            Раньше были проблемы со стилизацией legend, но эти времена давно прошли.
+          -->
+          <figcaption class="caption"><span>Remember about fieldset and legend elements. Before we have problems with legend stylization, but this times long gone.</span></figcaption>
         </figure>
       </li>
 
@@ -176,6 +259,8 @@
     type=&quot;email&quot; 
     placeholder=&quot;email@gmail.com&quot;&gt;
 &lt;&#x2F;label&gt;</code></pre>
+          <!-- Не забывайте использовать label -->
+          <figcaption class="caption"><span>Don't forget about labels. Use input that correspond to you need.</span></figcaption>
         </figure>
       </li>
 
@@ -184,6 +269,8 @@
           <div>
             <h2>Attributes</h2>
           </div>
+          <!-- Что ещё следует иметь ввиду? Атрибуты! -->
+          <figcaption class="caption"><span>What else? Attributes!</span></figcaption>
         </figure>
       </li>
 
@@ -192,6 +279,12 @@
             <pre data-code="67"><code class="language-html">autocorrect="off"
 spellcheck="false"
 autocapitalize="none"</code></pre>
+          <!-- Например вот эти вот позволят отключить атокорекцию и автокапитализацию. 
+          Вряд ли вы хотите что бы они применялись к адресу электропочты, верно? -->
+          <figcaption class="caption"><span>
+            This attributes would allow us to prevent autocorrection and autocapitalize.
+            You wouldn't want email to autocapitalized or spellchecked, right?
+          </span></figcaption>
         </figure>
       </li>
 
@@ -204,6 +297,14 @@ autocapitalize="none"</code></pre>
               <li>autocomplete</li>
             </ul>
           </div>
+          <!-- 
+            Кроме этого стоит обратить внимание на inputmode и autocomplete. 
+            Они позволяют изменить средство ввода и то, как работает автозаполнение.
+          -->
+          <figcaption class="caption"><span>
+            Aside from that, remember about inputmode and autocomplete attributes.
+            They would allow you to set how to work input and autocompletion.
+          </span></figcaption>
         </figure>
       </li>
 
@@ -226,6 +327,10 @@ autocapitalize="none"</code></pre>
               </ul>
             </div>
           </div>
+          <!-- Есть множество средств ввода. Позднее мы рассмотрим как именно они работают -->
+          <figcaption class="caption"><span>
+            
+          </span></figcaption>
         </figure>
       </li>
 
@@ -353,7 +458,7 @@ autocomplete=&quot;one-time-code&quot;</code></pre>
       <li class="slide">
         <figure class="content centred problems-list">
           <div>
-            <h3>iOS look for words next to numbers</h3>
+            <h3>iOS looks for words next to numbers</h3>
             <ol>
               <li>code</li>
               <li>passcode</li>
@@ -427,6 +532,15 @@ autocomplete=&quot;one-time-code&quot;</code></pre>
       <li class="slide">
         <figure class="content illustration illustration--robot-2">
           <h2 class="cloud"><b>All your passwords<br> belong to us! BOP!</b></h2>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred advice problems-list">
+          <div>
+            <h3>Browser</h3>
+            <p>All modern browsers would allow you to save credentials.</p>
+          </div>
         </figure>
       </li>
 
@@ -523,6 +637,100 @@ autocomplete=&quot;one-time-code&quot;</code></pre>
       </li>
 
       <li class="slide">
+        <figure class="content centred problems-list ">
+          <div>
+            <h3>Data sync</h3>
+            <ul>
+              <li>Google Password Manager</li>
+              <li>Firefox Lockwise</li>
+              <li>iCloud Keychain</li>
+            </ul>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--chrome-logotype">
+          <figcaption class="caption"><span>
+            Google Password Manager
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--chrome-account-1">
+          <figcaption class="caption"><span>
+            And more then that: you can add your ones
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--chrome-account-2">
+          <figcaption class="caption"><span>
+            And more then that: you can add your ones
+          </span></figcaption>
+        </figure>
+      </li>
+
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--chrome-account-3">
+          <figcaption class="caption"><span>
+            And more then that: you can add your ones
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--firefox-logotype">
+          <figcaption class="caption"><span>
+            Firefox Lockwise
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--firefox-lockwise-1">
+          <figcaption class="caption"><span>
+            And more then that: you can add your ones
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--firefox-lockwise-2">
+          <figcaption class="caption"><span>
+            And more then that: you can add your ones
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--safari-logotype">
+          <figcaption class="caption"><span>
+            iCloud Keychain
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--keychain-1">
+          <figcaption class="caption"><span>
+            And more then that: you can add your ones
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--ios-logotype">
+          <figcaption class="caption"><span>
+            iOS
+          </span></figcaption>
+        </figure>
+      </li>
+
+      <li class="slide">
         <figure class="content split steps">
           <div class="screenshot screenshot--password-1 third vh "></div>
           <div class="screenshot screenshot--password-2 third vh "></div>
@@ -538,18 +746,18 @@ autocomplete=&quot;one-time-code&quot;</code></pre>
       </li>
 
       <li class="slide">
-        <figure class="content centred screenshot screenshot--can-change-password">
-          <figcaption class="caption"><span>
-            Aside from auto-completing, a browser can find compromised passwords
-          </span></figcaption>
-        </figure>
-      </li>
-
-      <li class="slide">
         <figure class="content centred sub-title sub-title-6">
           <div>
             <h2>Password change</h2>
           </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--can-change-password">
+          <figcaption class="caption"><span>
+            Aside from auto-completing, a browser can find compromised passwords
+          </span></figcaption>
         </figure>
       </li>
 
@@ -591,29 +799,6 @@ server {
 
       <li class="slide">
         <figure class="content centred screenshot screenshot--restore"></figure>
-      </li>
-
-      <li class="slide">
-        <figure class="content centred no-padding">
-          <pre data-code="42"><code class="language-js">server.use(`
-  /.well-known/resource-that-
-  should-not-exist-whose-status-
-  code-should-not-be-200`,
-  (req, res) => {
-    res.status(404).end();
-  });</code></pre>
-        </figure>
-      </li>
-
-      <li class="slide">
-        <figure class="content centred problems-list ">
-          <div>
-            <h3>Expected responces</h3>
-            <ul>
-              <li>404 Not Found</li>
-            </ul>
-          </div>
-        </figure>
       </li>
 
       <li class="slide">
@@ -688,6 +873,12 @@ server {
             <h3>PasswordCredential</h3>
             <p>Authentication with login and password.</p>
           </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content video no-padding">
+          <video src="video/password-credentials.mp4" />
         </figure>
       </li>
 
@@ -934,7 +1125,7 @@ navigator.credentials.store(credential);</code></pre>
       </li>
 
       <li class="slide">
-        <figure class="content split steps">
+        <figure class="content split steps steps-two-direction">
           <div class="half vh screenshot screenshot--signedin-selector-2"></div>
           <div class="half vh screenshot screenshot--signedin-cross"></div>
         </figure>  
@@ -1068,6 +1259,7 @@ a4ded8aa step 4: prevent silent login on logout
               <li>You must send a message from a number that does not belong to the user's contacts.</li>
             </ol>
           </div>
+          <figcaption class="caption"><span>Requirement for Android: you must send a message from a number that does not belong to users contacts. This way, they guaranty that JavaScript wouldn't be able to access your private messaging.</span></figcaption>
         </figure>
       </li>
 
@@ -1158,7 +1350,7 @@ navigator.isLoggedIn</code></pre>
       <li class="slide">
         <figure class="content centred problems-list">
           <div>
-            <h3>Кросс-платформенные</h3>
+            <h3>Cross-platform</h3>
           </div>
         </figure>
       </li>
@@ -1174,7 +1366,7 @@ navigator.isLoggedIn</code></pre>
       <li class="slide">
         <figure class="content centred problems-list">
           <div>
-            <h3>Платформенные</h3>
+            <h3>Platform</h3>
           </div>
         </figure>
       </li>
@@ -1198,12 +1390,12 @@ navigator.isLoggedIn</code></pre>
       <li class="slide">
         <figure class="content centred problems-list problems-list--small">
           <div>
-            <h3>Платформенный ключ: </h3>
+            <h3>Platform key: </h3>
             <ol>
-              <li>Пользователь регистрируется</li>
-              <li>Мы спрашиваем разрешения для использования платформенного ключа</li>
-              <li>Если пользователь соглашается регистрируем ключ и храним id в браузере</li>
-              <li>При попытке аутентификации — используем </li>
+              <li>User register</li>
+              <li>We ask permission to use platform key</li>
+              <li>If user give us permission: we register the key and store id in the browser</li>
+              <li>If user try to authenticate — use this key</li>
             </ol>
           </div>
         </figure>
@@ -1212,36 +1404,12 @@ navigator.isLoggedIn</code></pre>
       <li class="slide">
         <figure class="content centred problems-list problems-list--small">
           <div>
-            <h3>Кросс-платформенный ключ: </h3>
+            <h3>Key registration: </h3>
             <ol>
-              <li>Пользователь регистрируется</li>
-              <li>Даем ему возможность по его инициативе добавить ключи в профиле и храним их id на сервере</li>
-              <li>При попытке аутентификации пользователь вводит логин и сервер присылает связанный список ключей</li>
-              <li>Если ключи есть вместо или после ввода пароля авторизируется ключем с пином.</li>
-            </ol>
-          </div>
-        </figure>
-      </li>
-
-      <li class="slide">
-        <figure class="content centred problems-list problems-list--small">
-          <div>
-            <h3>Регистрация ключа: </h3>
-            <ol>
-              <li>Запрашиваем у сервера вызов (challenge), данные о платформе и пользователе</li>
-              <li>Передаем их ключу и получаем PublicKeyCredential</li>
-            </ol>
-          </div>
-        </figure>
-      </li>
-
-      <li class="slide">
-        <figure class="content centred problems-list problems-list--small">
-          <div>
-            <h3>Регистрация ключа: </h3>
-            <ol>
-              <li>Отправляем PublicKeyCredential серверу для валидации и сохранения</li>
-              <li>Получаем Сredential Id который следует хранить на клиенте</li>
+              <li>Request challenge and data about user and platform from the server</li>
+              <li>Pass this data to the platform key and receive PublicKeyCredential</li>
+              <li>Send PublicKeyCredential to the server for validation</li>
+              <li>Get Сredential Id to store on client</li>
             </ol>
           </div>
         </figure>
@@ -1294,6 +1462,10 @@ const options = await response.json();</code></pre>
       </li>
 
       <li class="slide">
+        <figure class="content centred screenshot screenshot--libs"></figure>
+      </li>
+
+      <li class="slide">
         <figure class="content centred no-padding">
           <pre data-code="64"><code class="language-bash">npm i -S fido2-library</code></pre>
         </figure>
@@ -1306,13 +1478,13 @@ const options = await response.json();</code></pre>
 const f2l = new Fido2Lib({
   rpId: HOST,
   attestation: "none",
-  authenticatorAttachment: "platform",
   authenticatorUserVerification: "discouraged",
+  authenticatorAttachment: "platform",
 });</code></pre>
         </figure>
       </li>
 
-      <li class="slide">
+      <!-- <li class="slide">
         <figure class="content centred no-padding server">
           <pre data-code="32"><code class="language-js">const f2l = new Fido2Lib({
   rpId: HOST,
@@ -1321,7 +1493,7 @@ const f2l = new Fido2Lib({
   authenticatorUserVerification: "required",
 });</code></pre>
         </figure>
-      </li>
+      </li> -->
 
       <li class="slide">
         <figure class="content centred no-padding server">
@@ -1403,24 +1575,24 @@ const f2l = new Fido2Lib({
 
       <li class="slide">
         <figure class="content centred no-padding server">
-          <pre data-code="41"><code class="language-js">const toBuffer = (base64) => {
-  const ASCIIString = atob(base64);
-  return Uint8Array.from(
-    ASCIIString, 
-    c => c.charCodeAt(0)
-  ).buffer;
-}</code></pre>
-        </figure>
-      </li>
-
-      <li class="slide">
-        <figure class="content centred no-padding server">
           <pre data-code="41"><code class="language-js">const toBase64 = (buffer) => {
   const binaryString = 
     String.fromCharCode.apply(
       null, 
       new Uint8Array(buffer));
   return btoa(binaryString);
+}</code></pre>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred no-padding server">
+          <pre data-code="41"><code class="language-js">const toBuffer = (base64) => {
+  const ASCIIString = atob(base64);
+  return Uint8Array.from(
+    ASCIIString, 
+    c => c.charCodeAt(0)
+  ).buffer;
 }</code></pre>
         </figure>
       </li>
@@ -1454,7 +1626,7 @@ options.user = {
       </li>
 
       <li class="slide">
-        <figure class="content centred no-padding server">
+        <figure class="content centred no-padding client">
           <pre data-code="30"><code class="language-js">options.user.id = toBuffer(options.user.id);
 options.challenge = toBuffer(options.challenge);
 
@@ -1466,16 +1638,16 @@ const credential = await navigator.credentials
       </li>
 
       <li class="slide">
-        <figure class="content centred screenshot screenshot--ff-key"></figure>
+        <figure class="content centred screenshot screenshot--platform-register-1"></figure>
       </li>
 
-      <li class="slide">
-        <figure class="content centred screenshot screenshot--chrome-key"></figure>
-      </li>
+      <!-- <li class="slide">
+        <figure class="content centred screenshot screenshot--platform-register-2"></figure>
+      </li> -->
 
-      <li class="slide">
+      <!-- <li class="slide">
         <figure class="content centred screenshot screenshot--chrome-key-list-1"></figure>
-      </li>
+      </li> -->
 
       <li class="slide">
         <figure class="content centred screenshot screenshot--chrome-key-flag"></figure>
@@ -1497,14 +1669,6 @@ const credential = await navigator.credentials
         <figure class="content centred spec split steps">
           <figure class="half vh screenshot screenshot--safari-face-id-1"></figure>
           <figure class="half vh screenshot screenshot--safari-face-id-2"></figure>
-        </figure>
-      </li>
-
-      <li class="slide">
-        <figure class="content centred spec split steps">
-          <figure class="third vh screenshot screenshot--safari-key-1"></figure>
-          <figure class="third vh screenshot screenshot--safari-key-2"></figure>
-          <figure class="third vh screenshot screenshot--safari-key-3"></figure>
         </figure>
       </li>
 
@@ -1649,11 +1813,11 @@ reply
       <li class="slide">
         <figure class="content centred problems-list problems-list--small">
           <div>
-            <h3>Логин с помощью ключа: </h3>
+            <h3>Login with platform key:</h3>
             <ol>
-              <li>Проверяем есть ли у нас Сredential Id</li>
-              <li>Запрашиваем у сервера вызов (challenge) и данные о платформе</li>
-            </ol>
+              <li>Check if we have saved Сredential Id</li>
+              <li>Request challenge and platform data from server</li>
+            </ol> 
           </div>
         </figure>
       </li>
@@ -1661,10 +1825,10 @@ reply
       <li class="slide">
         <figure class="content centred problems-list problems-list--small">
           <div>
-            <h3>Логин с помощью ключа: </h3>
+            <h3>Login with platform key:</h3>
             <ol start="3">
-              <li>Передаем их ключу и получаем PublicKeyCredential</li>
-              <li>Отправляем PublicKeyCredential серверу для валидации</li>
+              <li>Pass challenge and platform data to platform key and obtain PublicKeyCredential</li>
+              <li>Send PublicKeyCredential to the server for validation</li>
             </ol>
           </div>
         </figure>
@@ -1858,6 +2022,27 @@ await f2l.assertionResult(clientAssertionResponse, assertionExpectations);</code
       </li>
 
       <li class="slide">
+        <figure class="content centred sub-title sub-title-3">
+          <div>
+            <h2>Debug WebAuthn</h2>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--webauth-debug-1"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--webauth-debug-2"></figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred screenshot screenshot--webauth-debug-3"></figure>
+      </li>
+
+
+      <li class="slide">
         <figure class="content centred spec split">
           <div class="half">
             <h2 class="password-title">WebAuthn demo application</h2>
@@ -1865,6 +2050,18 @@ await f2l.assertionResult(clientAssertionResponse, assertionExpectations);</code
           <div class="half">
             <img class="book-qrcode" src="images/webauthn-server.svg" alt="QR-Code with link to demo repository">
             <a aria-label="Open application repository" target="_blank" data-click href="https://github.com/SilentImp/webauthn-server">Open application repository</a>
+          </div>
+        </figure>
+      </li>
+
+      <li class="slide">
+        <figure class="content centred spec split">
+          <div class="half">
+            <h2 class="password-title">Emulate authenticators and debug WebAuthn</h2>
+          </div>
+          <div class="half">
+            <img class="book-qrcode" src="images/webauthn-debug.svg" alt="QR-Code with link to article on how to debug WebAuthn">
+            <a aria-label="Read how to emulate and debug WebAuthn" target="_blank" data-click href="https://developer.chrome.com/docs/devtools/webauthn/">Read how to emulate and debug WebAuthn</a>
           </div>
         </figure>
       </li>
@@ -2006,7 +2203,7 @@ await f2l.assertionResult(clientAssertionResponse, assertionExpectations);</code
           <div class="half">
             <h2>Contacts</h2>
             <h3>Anton Nemtsev</h3>
-            <img class="company" src="images/werkspot.svg" alt="Werkspot" />
+            <!-- <img class="company" src="images/werkspot.svg" alt="Werkspot" /> -->
             <ul>
               <li><a 
                 class="link"
@@ -2050,9 +2247,6 @@ await f2l.assertionResult(clientAssertionResponse, assertionExpectations);</code
     </ol>
   </main>
   <progress id="progress"></progress>
-
-  <!-- <meter id="timer"></meter> -->
-
   <form class="slide-selector">
     <input 
       aria-label="Page number" 
@@ -2066,32 +2260,7 @@ await f2l.assertionResult(clientAssertionResponse, assertionExpectations);</code
       name="page">
   </form>
 
-  <!-- <form class="timer-controller">
-    <input 
-      aria-label="Munutes" 
-      autocomplete="off" 
-      maxlength="3" 
-      size="3" 
-      pattern="[0-9]{1,3}" 
-      placeholder="30"
-      type="number" 
-      inputmode="numeric" 
-      name="minutes">
-  </form> -->
-
-  <!-- <form class="timer-controller">
-    <fieldset>
-      <label>
-        Start at: 
-        <input autocomplete="off" placeholder="12:30" type="time" name="start" step="300">
-      </label>
-      <label>
-        Duration is: 
-        <input aria-label="Duration is" size="2" autocomplete="off" placeholder="30" type="number" inputmode="numeric" name="duration">
-        minutes
-      </label>
-    </fieldset>
-  </form> -->
+  <timer-countdown duration="60" starts="2021-04-20T08:11+02:00" />
 
   <script type="module" src="javascript/SlideController.mjs"></script>
   <script src="javascript/prism.js"></script>

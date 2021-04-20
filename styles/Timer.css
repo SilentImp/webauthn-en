@@ -1,0 +1,11 @@
+timer-countdown {
+  visibility: hidden;
+  z-index: 1;
+  position: fixed;
+}
+
+html.fullscreen timer-countdown[data-visible-all],
+html.fullscreen.captions timer-countdown[data-visible-captions],
+html.fullscreen.teleprompter timer-countdown[data-visible-teleprompter] {
+  visibility: visible;
+}

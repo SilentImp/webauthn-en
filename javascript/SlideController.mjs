@@ -6,6 +6,7 @@ import Options from "./Options.mjs";
 import StateURL from "./StateURL.mjs";
 import MessageController from "./MessageController.mjs";
 import calculateMaxFontSize from "./calculateMaxFontSize.mjs";
+import "./Timer.mjs";
 
 class SlideController {
   static messenger = new MessageController();
@@ -23,6 +24,7 @@ class SlideController {
     this.totalSlides = Infinity;
     this.isTouchDevice = isTouchDevice();
 
+    this.playingVideo = null;
     this.container = null;
     this.main = null;
     this.progressBar = null;
@@ -54,6 +56,8 @@ class SlideController {
     // Check page structure
     this.progressBar = document.querySelector(Selectors.progress);
     if (this.progressBar === null) throw new Error("Progress bar not found");
+    this.countdownTimer = document.querySelector(Selectors.countdownTimer);
+    if (this.countdownTimer === null) throw new Error("Timer not found");
     this.container = document.querySelector(Selectors.container);
     if (this.container === null) throw new Error("Slides container not found");
     this.main = document.querySelector(Selectors.main);
@@ -66,6 +70,14 @@ class SlideController {
     if (this.slideSelector === null) throw new Error("Can't find page control form");
     this.slideSelectorInput = document.querySelector(Selectors.slideSelectorInput);
     if (this.slideSelectorInput === null) throw new Error("Can't find input in page control form");
+
+    if (Options.countdownTimerShowOn){
+      Options.countdownTimerShowOn.map(name => {
+        this.countdownTimer.setAttribute(`data-visible-${name}`, true);
+      });
+    } else {
+      this.countdownTimer.setAttribute(`data-visible-all`);
+    }
     
     // this.timerSelectorInput = document.querySelector(Selectors.timerSelectorInput);
     // if (this.timerSelectorInput === null) throw new Error("Can't find input in timer control form");
@@ -110,7 +122,9 @@ class SlideController {
     SlideController.messenger.register('slidecontroller:fullscreenchange', this.fullScreenChange);
     SlideController.messenger.register('slidecontroller:change', this.updateProgress);
     SlideController.messenger.register('slidecontroller:change', this.scrollToCurrent);
+    SlideController.messenger.register('slidecontroller:change', this.updateCountdown);
     SlideController.messenger.register('slidecontroller:select', this.markSlide);
+    SlideController.messenger.register('slidecontroller:select', this.rewindVideo);
     SlideController.messenger.register('slidecontroller:captions', this.switchCaptionMode);
 
     // Get current slide from hash
@@ -148,6 +162,11 @@ class SlideController {
 
     // Show slides
     this.container.style.visibility = 'visible';
+  }
+
+  updateCountdown (event) {
+    const percent = Math.floor(this.currentSlide*100/this.totalSlides);
+    this.countdownTimer.setAttribute('optimum', percent);
   }
 
   static isInsideForm () {
@@ -320,7 +339,7 @@ class SlideController {
   slideSelectorSubmit (event) {
     event.preventDefault();
     event.stopPropagation();
-    console.log('slide selector submit');
+    // console.log('slide selector submit');
 
     const form = event.currentTarget;
     let slideNumber = parseInt(this.slideSelectorInput.value) - 1;
@@ -519,6 +538,21 @@ class SlideController {
     return this.slides[slideNumber + 1] === undefined 
       ? this.slides[0] 
       : this.slides[slideNumber + 1];
+  }
+
+  // check if there are video inside current slide
+  rewindVideo (event) {
+    // console.log('event: ', event?.detail);
+    if (this.playingVideo !== null) {
+      this.playingVideo.currentTime = 0;
+      this.playingVideo.pause();
+      this.playingVideo = null;
+    }
+    const slideNumber = this.safeSlideNumber(event?.detail?.slideNumber);
+    const videoPlayer = this.slides[slideNumber].querySelector('.video video');
+    if (videoPlayer === null) return;
+    if (!videoPlayer.playing) videoPlayer.play();
+    this.playingVideo = videoPlayer;
   }
 
   // mark element as current slide
