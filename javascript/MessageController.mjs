@@ -2,6 +2,7 @@ import Options from "./Options.mjs";
 
 class MessageController {
   constructor (isBroadcastEnabled = true) {
+    console.log('broadcast');
     // Binding this to all class methods
     for (const name of Object.getOwnPropertyNames(Object.getPrototypeOf(this))) {
       const method = this[name];
@@ -51,6 +52,11 @@ class MessageController {
   post(name, options) {
     const { broadcast = true } = options;
     delete options.broadcast;
+
+    console.log('post: ', {
+      name,
+      detail: options?.detail,
+    });
 
     const event = new CustomEvent(name, options);
     window.document.dispatchEvent(event);

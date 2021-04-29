@@ -1853,7 +1853,7 @@ const options = await response.json();</code></pre>
       </li>
 
       <li class="slide">
-        <figure class="content centred no-padding client">
+        <figure class="content centred no-padding server">
           <pre data-code="48"><code class="language-js">fastify.post(
   '/challenge/login',
   async (request, reply) => {
@@ -1864,7 +1864,7 @@ const options = await response.json();</code></pre>
       </li>
 
       <li class="slide">
-        <figure class="content centred no-padding client">
+        <figure class="content centred no-padding server">
           <pre data-code="32"><code class="language-js">const options = await f2l.assertionOptions();</code></pre>
         </figure>
       </li>
@@ -2057,11 +2057,11 @@ await f2l.assertionResult(clientAssertionResponse, assertionExpectations);</code
       <li class="slide">
         <figure class="content centred spec split">
           <div class="half">
-            <h2 class="password-title">Emulate authenticators and debug WebAuthn</h2>
+            <h2 class="password-title">Emulate Authenticators and Debug WebAuthn in Chrome DevTools</h2>
           </div>
           <div class="half">
-            <img class="book-qrcode" src="images/webauthn-debug.svg" alt="QR-Code with link to article on how to debug WebAuthn">
-            <a aria-label="Read how to emulate and debug WebAuthn" target="_blank" data-click href="https://developer.chrome.com/docs/devtools/webauthn/">Read how to emulate and debug WebAuthn</a>
+            <img class="book-qrcode" src="images/debug.svg" alt="QR-Code with link to the article on WebAuthn debug in Chrome">
+            <a aria-label="Read an article on WebAuthn debug in Chrome" target="_blank" data-click href="https://developers.google.com/web/tools/chrome-devtools/webauthn">Read an article on WebAuthn debug in Chrome</a>
           </div>
         </figure>
       </li>
@@ -2146,18 +2146,6 @@ await f2l.assertionResult(clientAssertionResponse, assertionExpectations);</code
           <div class="half">
             <img class="book-qrcode" src="images/google-webauthn.svg" alt="QR-Code with link to the Google article with WebAuthn introduction">
           <a aria-label="Read Google article with WebAuthn introduction" target="_blank" data-click href="https://developers.google.com/web/updates/2018/05/webauthn">Read Google article with WebAuthn introduction</a>
-          </div>
-        </figure>
-      </li>
-      
-      <li class="slide">
-        <figure class="content centred spec split">
-          <div class="half">
-            <h2 class="password-title">Emulate Authenticators and Debug WebAuthn in Chrome DevTools</h2>
-          </div>
-          <div class="half">
-            <img class="book-qrcode" src="images/debug.svg" alt="QR-Code with link to the article on WebAuthn debug in Chrome">
-            <a aria-label="Read an article on WebAuthn debug in Chrome" target="_blank" data-click href="https://developers.google.com/web/tools/chrome-devtools/webauthn">Read an article on WebAuthn debug in Chrome</a>
           </div>
         </figure>
       </li>
@@ -2260,7 +2248,7 @@ await f2l.assertionResult(clientAssertionResponse, assertionExpectations);</code
       name="page">
   </form>
 
-  <timer-countdown duration="60" starts="2021-04-20T08:11+02:00" />
+  <timer-countdown duration="60" starts="2021-04-20T11:20+02:00" />
 
   <script type="module" src="javascript/SlideController.mjs"></script>
   <script src="javascript/prism.js"></script>
