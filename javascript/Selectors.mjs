@@ -17,7 +17,6 @@ const Selectors = {
   codeForResize: "[data-code]",
   htmlForCleanup: "[data-html]",
   captions: ".caption span",
-  countdownTimer: "timer-countdown",
 };
 
 const ClassNames = {

@@ -20,23 +20,18 @@ export default element => {
     div.style.left = 0;
     div.style.bottom = 0;
     div.style.right = 0;
-    div.style.lineHeight = 1.3;
+    div.style.lineHeight = 1.2;
     div.innerHTML = element.innerHTML;
     document.body.appendChild(div);
-    
-    const min = 10;
+
+    const min = 1;
     const max = 100;
     const current = 45;
     const precision = 2;
-    let size;
-    try {
-        size = fontSizeSearch(min, max, current, precision, div);
-    } catch (error) {
-        size = min;
-    }
+    const size = fontSizeSearch(min, max, current, precision, div);
 
     element.style.fontSize = `${size}vh`;
     div.style.fontSize = `${size}vh`;
-    
+
     div.remove();
 }

@@ -1,0 +1,95 @@
+/* Slide */
+
+:host {
+  width: var(--column-width);
+  height: var(--column-height);
+  position: relative;
+  display: list-item;
+}
+
+:host-context(html.fullscreen) :host {
+  transform: scale(var(--scale));
+}
+
+:host-context(html:not(.fullscreen)) :host:hover,
+:host-context(html:not(.fullscreen)) :host:focus {
+  outline: var(--slide-outline-width) solid var(--slide-outline-color-fucus);
+}
+
+/* Content */
+
+.content {
+  display: block;
+  width: var(--slide-width);
+  height: var(--slide-height);
+  background-color: var(--slide-bgc);
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  padding: var(--slide-gap);
+  box-sizing: border-box;
+  contain: strict;
+  transform-origin: 0 0;
+  transform: scale(var(--list-scale));
+  margin: 0;
+}
+
+.content:after {
+  content: attr(data-number);
+  position: absolute;
+  display: block;
+  bottom: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  color: #000;
+  text-align: center;
+  font-size: 14px;
+  z-index: 1;
+  border-radius: 100%;
+  background-color: #fff;
+}
+
+[data-click] {
+  pointer-events: all;
+  user-select: auto;
+}
+
+/* Captions */
+
+.caption {
+  display: none;
+}
+
+.caption span{
+  line-height: 1.2;
+}
+
+:host-context(html.teleprompter.fullscreen) .caption {
+  display: block;
+}
+
+:host-context(html.teleprompter:not(.fullscreen)) .caption,
+:host-context(html.captions.fullscreen:not(.teleprompter)) .caption,
+:host-context(html.captions.teleprompter:not(.fullscreen)) .caption {
+  display: block;
+  position: absolute;
+  bottom: var(--slide-gap);
+  left: var(--slide-gap);
+  right: var(--slide-gap);
+  margin: auto;
+  width: max-content;
+  max-width: calc(100% - (var(--slide-gap) * 2));
+}
+
+:host-context(html.captions:not(.teleprompter)) .caption span,
+:host-context(html.teleprompter:not(.fullscreen)) .caption span,
+:host-context(html.captions.fullscreen:not(.teleprompter)) .caption span,
+:host-context(html.captions.teleprompter:not(.fullscreen)) .caption span {
+  background: #fff8;
+  color: var(--dark-color);
+  /* We calculate font-size dynamicly for teleprompter and need to overwrite inline styles */
+  font-size: 6vh !important;
+}

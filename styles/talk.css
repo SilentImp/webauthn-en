@@ -62,16 +62,16 @@
 }
 
 @keyframes text-blink {
-  0%   { 
-    color: #0096ff; 
+  0%   {
+    color: #0096ff;
     text-shadow: 0 0 3rem #0096ff;
   }
-  50% { 
-    color: #cc00d7; 
+  50% {
+    color: #cc00d7;
     text-shadow: 0 0 4rem #cc00d7;
   }
-  100%   { 
-    color: #0096ff; 
+  100%   {
+    color: #0096ff;
     text-shadow: 0 0 3rem #0096ff;
   }
 }
@@ -79,7 +79,7 @@
 .main-title .outer-title .inner-title i {
   position: absolute;
   bottom: 5rem;
-  top: auto; 
+  top: auto;
   right: 0rem;
   left: auto;
   background: none;
@@ -177,13 +177,13 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: -6rem;
-  
+
 }
 
 .sub-title-0 {
   --add-bgc: #cc00d7;
   --common-bgc: #b200bb;
-  background: 
+  background:
     linear-gradient(135deg, var(--add-bgc) 25%, transparent 25%) -50px 0,
     linear-gradient(225deg, var(--add-bgc) 25%, transparent 25%) -50px 0,
     linear-gradient(315deg, var(--add-bgc) 25%, transparent 25%),
@@ -256,6 +256,10 @@
   line-height: 1.4;
 }
 
+.code-titled {
+  flex-direction: column;
+}
+
 .advice h2 + *:not(.split),
 .problems-list h2 + *:not(.split),
 .advice h3 + *:not(.split),
@@ -264,6 +268,7 @@
   display: block;
 }
 
+.code-titled h3,
 .problems-list h3,
 .advice h3 {
   background-color: #ff0;
@@ -282,6 +287,13 @@
   line-height: 1.2;
   display: inline;
   filter: drop-shadow(8px 0 0 #ff0) drop-shadow(-8px 0 0 #ff0);
+}
+
+.illustration--ukraine {
+  background-image: url(../images/ukraine.svg);
+  background-color: #fff;
+  background-size: 30vh;
+  color: #000;
 }
 
 .illustration--problem {
@@ -385,10 +397,10 @@
 }
 
 .illustration--scream .cloud {
-  font-size: 54px;
+  font-size: 40px;
   top: 0;
-  left: 50px;
-  right: 50px;
+  left: 45px;
+  right: 45px;
   width: auto;
   max-width: auto;
 }
@@ -434,7 +446,7 @@ h2.isloggedin-title {
 
 .steps .half:after,
 .steps .third:after {
-  content: "➡︎";  
+  content: "➡︎";
   top: 0;
   left: 0;
   bottom: 0;
@@ -467,21 +479,21 @@ h2.isloggedin-title {
   display: none;
 }
 
-.client:before {
-  content: "Клиент";
-  display: block;
-  position: absolute;
-  right: 5%;
-  top: 0;
-  background-color: darkorange;
-  color: white;
-  padding: 24px;
-  font-size: 24px;
-}
+// .client:before {
+//   content: "Клиент";
+//   display: block;
+//   position: absolute;
+//   right: 5%;
+//   top: 0;
+//   background-color: darkorange;
+//   color: white;
+//   padding: 24px;
+//   font-size: 24px;
+// }
 
-html[lang="en"] .client:before {
-  content: "Client";
-}
+// html[lang="en"] .client:before {
+//   content: "Client";
+// }
 
 .server:before {
   content: "Сервер";
@@ -489,7 +501,7 @@ html[lang="en"] .client:before {
   position: absolute;
   right: 5%;
   top: 0;
-  background-color: darkred; 
+  background-color: darkred;
   color: white;
   padding: 24px;
   font-size: 24px;
@@ -498,6 +510,42 @@ html[lang="en"] .client:before {
 html[lang="en"] .server:before {
   content: "Server";
 }
+
+.illustration--cover {
+  background-image: url(../images/logotype.jpg_large);
+  background-size: 30vh;
+}
+
+.cover h2{
+ font-size: 56px!important;
+//  display: inline-block;
+}
+
+.illustration--demotime {
+  background-image: url(../images/demotime.webp);
+  background-position: 0 100%;
+}
+
+.screenshot--report-2 {
+  background-image: url(../images/LP-Annual-Report-2022_v2-1.png);
+}
+
+.screenshot--report-3 {
+  background-image: url(../images/LP-Annual-Report-2022_v2-2.png);
+}
+
+.screenshot--restore-ff {
+  background-image: url(../images/restore-ff.png);
+}
+
+.screenshot--login-autocomplete {
+  background-image: url(../images/login-autocomplete-ff.png);
+}
+
+.screenshot--browser-sync {
+  background-image: url(../images/browser-sync.png);
+}
+
 
 .screenshot--platform-register-1 {
   background-image: url(../images/platform-register-1.png);
@@ -531,6 +579,10 @@ html[lang="en"] .server:before {
   background-image: url(../images/firefox.svg);
 }
 
+.screenshot--firefox {
+  background-image: url(../images/passwords-firefox.png);
+}
+
 .screenshot--firefox-lockwise-1 {
   background-image: url(../images/passwords-firefox-1.png);
 }
@@ -556,12 +608,24 @@ html[lang="en"] .server:before {
   background-image: url(../images/passwords-chrome-3.png);
 }
 
+.screenshot--stub-0 {
+  background-image: url(../images/stub-0.png);
+}
+
 .screenshot--stub {
   background-image: url(../images/stub.png);
 }
 
 .screenshot--stub-ru {
   background-image: url(../images/stub-ru.png);
+}
+
+.screenshot--stub-2 {
+  background-image: url(../images/stub-2.png);
+}
+
+.screenshot--stub-2-ru {
+  background-image: url(../images/stub-2-ru.png);
 }
 
 .screenshot--password-1 {
@@ -573,7 +637,7 @@ html[lang="en"] .server:before {
 }
 
 .screenshot--password-3 {
-  background-image: url(../images/passwords-3.png);
+  background-image: url(../images/password-3.jpg);
 }
 
 .screenshot--login {
@@ -668,6 +732,22 @@ html[lang="en"] .server:before {
 
 .screenshot--credentials-support-1 {
   background-image: url(../images/credentials-support-1.png);
+}
+
+.screenshot--credentials-support-2021 {
+  background-image: url(../images/support-2021.png);
+}
+
+.screenshot--credentials-support-2023 {
+  background-image: url(../images/support-2023.png);
+}
+
+.screenshot--credentials-support-ff-2021 {
+  background-image: url(../images/support-ff-2021.png);
+}
+
+.screenshot--credentials-support-safari-2021 {
+  background-image: url(../images/support-safari-2021.png);
 }
 
 .screenshot--credentials-support-2 {
@@ -886,7 +966,7 @@ html[lang="en"] .server:before {
 .book a {
   font-size: 24px;
   margin: 8px 0;
-} 
+}
 
 .outro {
   background: #120838 url(../images/main-background.png) 50% 50% no-repeat;

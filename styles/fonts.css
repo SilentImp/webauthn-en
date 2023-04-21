@@ -10,34 +10,3 @@
   font-weight: 100 900;
   font-variant-ligatures: common-ligatures;
 }
-
-@font-face {
-  font-family: "Shentox";
-  src: url("../fonts/ShentoxThin.ttf") format("truetype");
-  font-weight: 100;
-}
-
-
-@font-face {
-  font-family: "Shentox";
-  src: url("../fonts/ShentoxUltraLight.ttf") format("truetype");
-  font-weight: 200;
-}
-
-@font-face {
-  font-family: "Shentox";
-  src: url("../fonts/Shentox.ttf") format("truetype");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Shentox";
-  src: url("../fonts/ShentoxSemiBold.ttf") format("truetype");
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "Shentox";
-  src: url("../fonts/ShentoxBold.ttf") format("truetype");
-  font-weight: 800;
-}

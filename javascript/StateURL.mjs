@@ -38,7 +38,7 @@ class StateURL {
     const url = new URL(window.location.href);
     const { hash } = url;
     const slide = hash.replace(Options.slidePrefix, "").trim();
-    return (hash.length > 0) 
+    return (hash.length > 0)
       ? parseInt(slide, 10)
       : 1;
   }

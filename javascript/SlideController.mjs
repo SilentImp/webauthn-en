@@ -6,7 +6,6 @@ import Options from "./Options.mjs";
 import StateURL from "./StateURL.mjs";
 import MessageController from "./MessageController.mjs";
 import calculateMaxFontSize from "./calculateMaxFontSize.mjs";
-import "./Timer.mjs";
 
 class SlideController {
   static messenger = new MessageController();
@@ -41,46 +40,30 @@ class SlideController {
 
     // Keys
     this.controlsPressed = [];
-    this.nextKeys = [Keys.PgDown, Keys.Down, Keys.Right, Keys.L, Keys.J];
-    this.prevKeys = [Keys.PgUp, Keys.Up, Keys.Left, Keys.H, Keys.K];
+    this.nextKeys = [Keys.PgDown, Keys.Right, Keys.L, Keys.J];
+    this.prevKeys = [Keys.PgUp, Keys.Left, Keys.H, Keys.K];
     this.controlsKeys = [Keys.cmd, Keys.ctrl, Keys.alt, Keys.shift];
     this.selectKeys = [Keys.enter];
     this.submitFormKeys = [Keys.enter];
     this.exitFullscreenKeys = [Keys.esc];
     this.enterFullscreenKeys = [Keys.enter, Keys.F];
     this.slideSelectorKeys = [Keys.P];
-    // this.timerControllerKeys = [Keys.T];
     this.captionKeys = [Keys.C];
     this.broadcastKeys = [Keys.B];
 
     // Check page structure
     this.progressBar = document.querySelector(Selectors.progress);
     if (this.progressBar === null) throw new Error("Progress bar not found");
-    this.countdownTimer = document.querySelector(Selectors.countdownTimer);
-    if (this.countdownTimer === null) throw new Error("Timer not found");
     this.container = document.querySelector(Selectors.container);
     if (this.container === null) throw new Error("Slides container not found");
     this.main = document.querySelector(Selectors.main);
     if (this.main === null) throw new Error("Main container not found");
     this.slides = this.container.querySelectorAll(Selectors.slide);
     if (this.slides === null) throw new Error("No slides found");
-    // this.timerController = document.querySelector(Selectors.timerController);
-    // if (this.timerController === null) throw new Error("Can't find timer control form");
     this.slideSelector = document.querySelector(Selectors.slideSelector);
     if (this.slideSelector === null) throw new Error("Can't find page control form");
     this.slideSelectorInput = document.querySelector(Selectors.slideSelectorInput);
     if (this.slideSelectorInput === null) throw new Error("Can't find input in page control form");
-
-    if (Options.countdownTimerShowOn){
-      Options.countdownTimerShowOn.map(name => {
-        this.countdownTimer.setAttribute(`data-visible-${name}`, true);
-      });
-    } else {
-      this.countdownTimer.setAttribute(`data-visible-all`);
-    }
-    
-    // this.timerSelectorInput = document.querySelector(Selectors.timerSelectorInput);
-    // if (this.timerSelectorInput === null) throw new Error("Can't find input in timer control form");
 
     // Transform NodeList to Array
     this.slides = [...this.slides];
@@ -108,7 +91,7 @@ class SlideController {
     }
 
     // Set browser events
-    document.addEventListener('touchstart', this.handleTouchStart, false);        
+    document.addEventListener('touchstart', this.handleTouchStart, false);
     document.addEventListener('touchmove', this.handleTouchMove, false);
     document.addEventListener('click', this.clickController);
     document.addEventListener('dblclick', this.dblClickController);
@@ -116,16 +99,14 @@ class SlideController {
     document.addEventListener('keyup', this.keyUpController);
 
     this.slideSelector.addEventListener('submit', this.slideSelectorSubmit);
-    // this.timerController.addEventListener('submit', this.timerControllerSubmit);
 
     // Set messager
     SlideController.messenger.register('slidecontroller:fullscreenchange', this.fullScreenChange);
     SlideController.messenger.register('slidecontroller:change', this.updateProgress);
     SlideController.messenger.register('slidecontroller:change', this.scrollToCurrent);
-    SlideController.messenger.register('slidecontroller:change', this.updateCountdown);
     SlideController.messenger.register('slidecontroller:select', this.markSlide);
-    SlideController.messenger.register('slidecontroller:select', this.rewindVideo);
     SlideController.messenger.register('slidecontroller:captions', this.switchCaptionMode);
+    SlideController.messenger.register('slidecontroller:select', this.rewindVideo);
 
     // Get current slide from hash
     this.slideFromString();
@@ -164,9 +145,19 @@ class SlideController {
     this.container.style.visibility = 'visible';
   }
 
-  updateCountdown (event) {
-    const percent = Math.floor(this.currentSlide*100/this.totalSlides);
-    this.countdownTimer.setAttribute('optimum', percent);
+  // check if there are video inside current slide
+  rewindVideo (event) {
+    // console.log('event: ', event?.detail);
+    if (this.playingVideo !== null) {
+      this.playingVideo.currentTime = 0;
+      this.playingVideo.pause();
+      this.playingVideo = null;
+    }
+    const slideNumber = this.safeSlideNumber(event?.detail?.slideNumber);
+    const videoPlayer = this.slides[slideNumber].querySelector('.video video');
+    if (videoPlayer === null) return;
+    if (!videoPlayer.playing) videoPlayer.play();
+    this.playingVideo = videoPlayer;
   }
 
   static isInsideForm () {
@@ -235,7 +226,7 @@ class SlideController {
           },
           bubbles: true,
         });
-      }                       
+      }
     } else {
       if ( yDiff > 0 ) {
         /* up swipe */
@@ -245,7 +236,7 @@ class SlideController {
           },
           bubbles: true,
         });
-      } else { 
+      } else {
         /* down swipe */
         SlideController.messenger.post("slidecontroller:select", {
           detail: {
@@ -300,7 +291,7 @@ class SlideController {
   calculateScale () {
     // Scale for full screen
     const scale = 1/Math.max(
-      this.slides[this.currentSlide].clientWidth/window.innerWidth, 
+      this.slides[this.currentSlide].clientWidth/window.innerWidth,
       this.slides[this.currentSlide].clientHeight/window.innerHeight
     );
     document.documentElement.style.setProperty('--scale', scale);
@@ -321,25 +312,10 @@ class SlideController {
     return element.firstElementChild.getAttribute('data-number') - 1;
   }
 
-  // timerControllerSubmit (event) {
-  //   event.preventDefault();
-  //   event.stopPropagation();
-  //   console.log('timer controller submit');
-
-  //   const form = event.currentTarget;
-  //   const data = new FormData(form);
-  //   const minutes = data.get('minutes');
-
-  //   console.log('minutes: ', minutes);
-
-  //   this.toggleTimerController();
-  //   form.reset();
-  // }
-
   slideSelectorSubmit (event) {
     event.preventDefault();
     event.stopPropagation();
-    // console.log('slide selector submit');
+    console.log('slide selector submit');
 
     const form = event.currentTarget;
     let slideNumber = parseInt(this.slideSelectorInput.value) - 1;
@@ -404,22 +380,12 @@ class SlideController {
 
     // close the form on esc
     if (
-      this.exitFullscreenKeys.includes(event.which) && 
+      this.exitFullscreenKeys.includes(event.which) &&
       this.slideSelector.classList.contains(ClassNames.slideSelectorVisibility)
     ) {
       this.toggleSlideSelector();
       return;
     }
-
-    // close the form on esc
-    // if (
-    //   this.exitFullscreenKeys.includes(event.which) && 
-    //   this.timerController.classList.contains(ClassNames.timerControllerVisibility)
-    // ) {
-    //   this.toggleTimerController();
-    //   return;
-    // }
-
     // // submit the form on enter
     // // Enter to switch fullscreen
     // if (this.submitFormKeys.includes(event.which)) {
@@ -427,11 +393,6 @@ class SlideController {
     // }
 
     if (isInsideForm) return;
-
-    // if (this.timerControllerKeys.includes(event.which)) {
-    //   event.preventDefault();
-    //   this.toggleTimerController();
-    // }
 
     // Show slide selection form
     if (this.slideSelectorKeys.includes(event.which)) {
@@ -515,44 +476,18 @@ class SlideController {
     if (this.slideSelector.classList.contains(ClassNames.slideSelectorVisibility)) this.slideSelectorInput.focus();
   }
 
-  // show or hide form to set up timer
-  // toggleTimerController () {
-  //   this.timerController.classList.toggle(ClassNames.timerControllerVisibility);
-  //   if (this.timerController.classList.contains(ClassNames.timerControllerVisibility)) {
-  //     this.timerSelectorInput.focus();
-  //     this.timerSelectorInput.value = Options.talkDuration;
-  //   } else {
-  //     this.timerController.reset();
-  //   }
-  // }
-
   // get prev slide element
   getPrevSlide (slideNumber) {
-    return this.slides[slideNumber - 1] === undefined 
-      ? this.slides[this.totalSlides - 1] 
+    return this.slides[slideNumber - 1] === undefined
+      ? this.slides[this.totalSlides - 1]
       : this.slides[slideNumber - 1];
   }
 
   // get next slide element
   getNextSlide (slideNumber) {
-    return this.slides[slideNumber + 1] === undefined 
-      ? this.slides[0] 
+    return this.slides[slideNumber + 1] === undefined
+      ? this.slides[0]
       : this.slides[slideNumber + 1];
-  }
-
-  // check if there are video inside current slide
-  rewindVideo (event) {
-    // console.log('event: ', event?.detail);
-    if (this.playingVideo !== null) {
-      this.playingVideo.currentTime = 0;
-      this.playingVideo.pause();
-      this.playingVideo = null;
-    }
-    const slideNumber = this.safeSlideNumber(event?.detail?.slideNumber);
-    const videoPlayer = this.slides[slideNumber].querySelector('.video video');
-    if (videoPlayer === null) return;
-    if (!videoPlayer.playing) videoPlayer.play();
-    this.playingVideo = videoPlayer;
   }
 
   // mark element as current slide
@@ -560,12 +495,12 @@ class SlideController {
     const slideNumber = this.safeSlideNumber(event?.detail?.slideNumber);
 
     // remove old classes
-    this.getPrevSlide(this.currentSlide).classList.toggle(ClassNames.prevSlide, false); 
+    this.getPrevSlide(this.currentSlide).classList.toggle(ClassNames.prevSlide, false);
     this.getNextSlide(this.currentSlide).classList.toggle(ClassNames.nextSlide, false);
     this.slides[this.currentSlide].classList.toggle(ClassNames.currentSlide, false);
 
     // add new classes
-    this.getPrevSlide(slideNumber).classList.toggle(ClassNames.prevSlide, true); 
+    this.getPrevSlide(slideNumber).classList.toggle(ClassNames.prevSlide, true);
     this.getNextSlide(slideNumber).classList.toggle(ClassNames.nextSlide, true);
     this.slides[slideNumber].classList.toggle(ClassNames.currentSlide, true);
 

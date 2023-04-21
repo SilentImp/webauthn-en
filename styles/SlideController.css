@@ -6,7 +6,6 @@
 @import "slide.css";
 @import "prism.css";
 @import "slide-selector.css";
-@import "timer-controller.css";
 @import "split.css";
 @import "contacts.css";
 @import "illustration.css";
@@ -18,4 +17,7 @@
 @import "code.css";
 @import "sub-title.css";
 @import "video.css";
-@import "Timer.css";
+
+
+/* Components */
+@import "timer.css";
